@@ -60,16 +60,6 @@ provider "aws" {
 #   public_key = "${tls_private_key.rsa_4096_key_rackspace_routing.public_key_openssh}"
 # }
 
-
-# resource "aws_instance" "test_routing" {
-#   ami                         = "ami-0fff1b9a61dec8a5f"
-#   instance_type               = "t2.micro"
-#   key_name                    = "${aws_key_pair.key_rackspace_routing.key_name}"
-#   iam_instance_profile        = "${aws_iam_instance_profile.instance_rackspace_role.name}"
-#   vpc_security_group_ids      = ["${aws_security_group.instance_test_routing.id}"]
-#   subnet_id                   = data.aws_subnet.subnet.id
-#   associate_public_ip_address = "false"
-  
 #   root_block_device {
 #     volume_size = "8"
 #     volume_type = "gp2"
