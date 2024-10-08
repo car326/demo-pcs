@@ -65,7 +65,7 @@ resource "aws_instance" "test_routing" {
   ami                         = "ami-0fff1b9a61dec8a5f"
   instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.key_rackspace_routing.key_name}"
-  iam_instance_profile        = "${aws_iam_instance_profile.instance_rackspace_role.name}"
+  #iam_instance_profile        = "${aws_iam_instance_profile.instance_rackspace_role.name}"
   vpc_security_group_ids      = ["${aws_security_group.instance_test_routing.id}"]
   subnet_id                   = "subnet-08f312362eebe07cc"
   associate_public_ip_address = "false"
