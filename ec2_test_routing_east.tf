@@ -20,35 +20,35 @@ provider "aws" {
 #   }
 # }
 
-resource "aws_iam_role" "rackspace_role" {
-  name                = "rackspace-role"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
-}
+# resource "aws_iam_role" "rackspace_role" {
+#   name                = "rackspace-role"
+#   assume_role_policy = <<EOF
+# {
+#   "Version": "2012-10-17",
+#   "Statement": [
+#     {
+#       "Action": "sts:AssumeRole",
+#       "Principal": {
+#         "Service": "ec2.amazonaws.com"
+#       },
+#       "Effect": "Allow",
+#       "Sid": ""
+#     }
+#   ]
+# }
+# EOF
+# }
 
-resource "aws_iam_policy_attachment" "policy" {
-  name = "instance-rackspace-policy"
-  roles = ["${aws_iam_role.rackspace_role.name}"]
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-}
+# resource "aws_iam_policy_attachment" "policy" {
+#   name = "instance-rackspace-policy"
+#   roles = ["${aws_iam_role.rackspace_role.name}"]
+#   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+# }
 
-resource "aws_iam_instance_profile" "instance_rackspace_role" {
-  name = "instance-rackspace-role"
-  role = "${aws_iam_role.rackspace_role.name}"
-}
+# resource "aws_iam_instance_profile" "instance_rackspace_role" {
+#   name = "instance-rackspace-role"
+#   role = "${aws_iam_role.rackspace_role.name}"
+# }
 
 resource "tls_private_key" "rsa_4096_key_rackspace_routing" {
   algorithm = "RSA"
