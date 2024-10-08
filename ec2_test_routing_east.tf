@@ -74,7 +74,7 @@ provider "aws" {
 resource "aws_security_group" "instance_test_routing" {
   vpc_id = "vpc-094fc7ca07a9b39c4"
   name = "rackspace-test-sg"
-  description = "rackspace-test-routing SG"
+  description = "rackspace-test-routing"
   
   ingress {
     from_port = 22
@@ -82,6 +82,13 @@ resource "aws_security_group" "instance_test_routing" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   } 
+
+   ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "http"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   
   ingress {
     from_port = -1
