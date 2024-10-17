@@ -84,8 +84,8 @@ resource "aws_security_group" "instance_test_routing" {
   } 
 
    ingress {
-    from_port = 80
-    to_port = 80
+    from_port = 339
+    to_port = 339
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
